@@ -1,4 +1,5 @@
 import dash
+import os
 from dash import dcc, html, Input, Output
 import dash_bootstrap_components as dbc
 import pandas as pd
@@ -75,4 +76,5 @@ def makeGraph(selected_year,figure_data):
     )
     return fig,fig2
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 8050))
+    app.run(host="0.0.0.0", port=port, debug = False)
